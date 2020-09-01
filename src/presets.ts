@@ -17,6 +17,51 @@ const lintstaged = {
   },
 };
 
+export const node = async () => {
+  const dependencies: string[] = [];
+  const devDependencies = [
+    '@babel/core',
+    '@babel/preset-env',
+    '@babel/preset-typescript',
+    '@types/jest',
+    '@types/webpack',
+    '@types/webpack-node-externals',
+    '@typescript-eslint/eslint-plugin',
+    '@typescript-eslint/parser',
+    'babel-jest',
+    'babel-plugin-module-resolver',
+    'eslint',
+    'eslint-config-prettier',
+    'eslint-plugin-prettier',
+    'fork-ts-checker-webpack-plugin',
+    'husky',
+    'jest',
+    'lint-staged',
+    'prettier',
+    'ts-loader',
+    'ts-node',
+    'typescript',
+    'webpack',
+    'webpack-cli',
+    'webpack-merge',
+    'webpack-node-externals',
+  ];
+  const scripts = {
+    start: 'node dist/app.js',
+    build: 'webpack --config webpack.prod.ts',
+    test: 'jest --color',
+    testWithCoverage: 'jest --collectCoverage --color',
+    openCoverage: 'sensible-browser ./coverage/lcov-report/index.html',
+    tsc_babel: 'tsc babel.config.ts --esModuleInterop --lib es5',
+  };
+  spinner.start();
+  await npm(dependencies, devDependencies);
+  copyPreset('express');
+  assignPackageJson({ scripts });
+  await tscBabel();
+  spinner.done();
+};
+
 export const react = async () => {
   const dependencies = ['react', 'react-dom', 'styled-components'];
   const devDependencies = [
@@ -99,7 +144,6 @@ export const express = async () => {
     'jest',
     'lint-staged',
     'prettier',
-    'prettier',
     'sinon',
     'sinon-express-mock',
     'supertest',
@@ -152,7 +196,6 @@ export const express_mongo = async () => {
     'husky',
     'jest',
     'lint-staged',
-    'prettier',
     'prettier',
     'sinon',
     'sinon-express-mock',

@@ -3,7 +3,7 @@
 import prompts from 'prompts';
 import { confirmCommandExistence } from './utils';
 import { presets } from './constants';
-import { react, express, express_mongo } from './presets';
+import { react, express, express_mongo, node } from './presets';
 import { SpinnerHandler } from './spinner';
 
 export const spinner = new SpinnerHandler();
@@ -16,6 +16,10 @@ const init = async () => {
       type: 'select',
       name: 'preset',
       choices: [
+        {
+          title: 'Node',
+          value: presets.node,
+        },
         {
           title: 'React',
           value: presets.react,
@@ -32,6 +36,9 @@ const init = async () => {
     },
   ]);
   switch (response.preset) {
+    case presets.node:
+      await node();
+      break;
     case presets.react:
       await react();
       break;

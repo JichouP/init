@@ -60,6 +60,10 @@ var init = function () { return __awaiter(void 0, void 0, void 0, function () {
                             name: 'preset',
                             choices: [
                                 {
+                                    title: 'Node',
+                                    value: constants_1.presets.node,
+                                },
+                                {
                                     title: 'React',
                                     value: constants_1.presets.react,
                                 },
@@ -78,24 +82,29 @@ var init = function () { return __awaiter(void 0, void 0, void 0, function () {
                 response = _b.sent();
                 _a = response.preset;
                 switch (_a) {
-                    case constants_1.presets.react: return [3 /*break*/, 2];
-                    case constants_1.presets.express: return [3 /*break*/, 4];
-                    case constants_1.presets.express_mongo: return [3 /*break*/, 6];
+                    case constants_1.presets.node: return [3 /*break*/, 2];
+                    case constants_1.presets.react: return [3 /*break*/, 4];
+                    case constants_1.presets.express: return [3 /*break*/, 6];
+                    case constants_1.presets.express_mongo: return [3 /*break*/, 8];
                 }
-                return [3 /*break*/, 8];
-            case 2: return [4 /*yield*/, presets_1.react()];
+                return [3 /*break*/, 10];
+            case 2: return [4 /*yield*/, presets_1.node()];
             case 3:
                 _b.sent();
-                return [3 /*break*/, 8];
-            case 4: return [4 /*yield*/, presets_1.express()];
+                return [3 /*break*/, 10];
+            case 4: return [4 /*yield*/, presets_1.react()];
             case 5:
                 _b.sent();
-                return [3 /*break*/, 8];
-            case 6: return [4 /*yield*/, presets_1.express_mongo()];
+                return [3 /*break*/, 10];
+            case 6: return [4 /*yield*/, presets_1.express()];
             case 7:
                 _b.sent();
-                return [3 /*break*/, 8];
-            case 8: return [2 /*return*/];
+                return [3 /*break*/, 10];
+            case 8: return [4 /*yield*/, presets_1.express_mongo()];
+            case 9:
+                _b.sent();
+                return [3 /*break*/, 10];
+            case 10: return [2 /*return*/];
         }
     });
 }); };

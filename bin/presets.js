@@ -50,7 +50,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.express_mongo = exports.express = exports.react = void 0;
+exports.express_mongo = exports.express = exports.react = exports.node = void 0;
 var child_process_1 = require("child_process");
 var fs_extra_1 = __importDefault(require("fs-extra"));
 var path_1 = __importDefault(require("path"));
@@ -67,6 +67,61 @@ var lintstaged = {
         '*.{ts,tsx}': ['prettier --write', 'eslint --fix', 'git add'],
     },
 };
+exports.node = function () { return __awaiter(void 0, void 0, void 0, function () {
+    var dependencies, devDependencies, scripts;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                dependencies = [];
+                devDependencies = [
+                    '@babel/core',
+                    '@babel/preset-env',
+                    '@babel/preset-typescript',
+                    '@types/jest',
+                    '@types/webpack',
+                    '@types/webpack-node-externals',
+                    '@typescript-eslint/eslint-plugin',
+                    '@typescript-eslint/parser',
+                    'babel-jest',
+                    'babel-plugin-module-resolver',
+                    'eslint',
+                    'eslint-config-prettier',
+                    'eslint-plugin-prettier',
+                    'fork-ts-checker-webpack-plugin',
+                    'husky',
+                    'jest',
+                    'lint-staged',
+                    'prettier',
+                    'ts-loader',
+                    'ts-node',
+                    'typescript',
+                    'webpack',
+                    'webpack-cli',
+                    'webpack-merge',
+                    'webpack-node-externals',
+                ];
+                scripts = {
+                    start: 'node dist/app.js',
+                    build: 'webpack --config webpack.prod.ts',
+                    test: 'jest --color',
+                    testWithCoverage: 'jest --collectCoverage --color',
+                    openCoverage: 'sensible-browser ./coverage/lcov-report/index.html',
+                    tsc_babel: 'tsc babel.config.ts --esModuleInterop --lib es5',
+                };
+                cli_1.spinner.start();
+                return [4 /*yield*/, npm(dependencies, devDependencies)];
+            case 1:
+                _a.sent();
+                copyPreset('express');
+                assignPackageJson({ scripts: scripts });
+                return [4 /*yield*/, tscBabel()];
+            case 2:
+                _a.sent();
+                cli_1.spinner.done();
+                return [2 /*return*/];
+        }
+    });
+}); };
 exports.react = function () { return __awaiter(void 0, void 0, void 0, function () {
     var dependencies, devDependencies, scripts;
     return __generator(this, function (_a) {
@@ -163,7 +218,6 @@ exports.express = function () { return __awaiter(void 0, void 0, void 0, functio
                     'jest',
                     'lint-staged',
                     'prettier',
-                    'prettier',
                     'sinon',
                     'sinon-express-mock',
                     'supertest',
@@ -226,7 +280,6 @@ exports.express_mongo = function () { return __awaiter(void 0, void 0, void 0, f
                     'husky',
                     'jest',
                     'lint-staged',
-                    'prettier',
                     'prettier',
                     'sinon',
                     'sinon-express-mock',
