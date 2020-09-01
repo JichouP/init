@@ -112,7 +112,7 @@ exports.node = function () { return __awaiter(void 0, void 0, void 0, function (
                 return [4 /*yield*/, npm(dependencies, devDependencies)];
             case 1:
                 _a.sent();
-                copyPreset('express');
+                copyPreset('node');
                 assignPackageJson({ scripts: scripts });
                 return [4 /*yield*/, tscBabel()];
             case 2:
