@@ -56,7 +56,7 @@ export const node = async () => {
   };
   spinner.start();
   await npm(dependencies, devDependencies);
-  copyPreset('express');
+  copyPreset('node');
   assignPackageJson({ scripts });
   await tscBabel();
   spinner.done();
