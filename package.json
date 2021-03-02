@@ -1,9 +1,11 @@
 {
   "name": "@jichoup/init",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Initialize JS Project",
   "main": "./bin/cli.js",
-  "bin": "./bin/cli.js",
+  "bin": {
+    "init": "bin/cli.js"
+  },
   "scripts": {
     "build": "rm -rf ./bin && tsc && cp -r ./presets ./bin",
     "start": "npm run build && node bin/cli.js"
