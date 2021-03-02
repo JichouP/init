@@ -86,6 +86,7 @@ exports.node = function () { return __awaiter(void 0, void 0, void 0, function (
                     'babel-plugin-module-resolver',
                     'eslint',
                     'eslint-config-prettier',
+                    'eslint-plugin-import',
                     'eslint-plugin-prettier',
                     'fork-ts-checker-webpack-plugin',
                     'husky',
@@ -212,6 +213,7 @@ exports.express = function () { return __awaiter(void 0, void 0, void 0, functio
                     'babel-plugin-module-resolver',
                     'eslint',
                     'eslint-config-prettier',
+                    'eslint-plugin-import',
                     'eslint-plugin-prettier',
                     'fork-ts-checker-webpack-plugin',
                     'husky',
@@ -275,6 +277,7 @@ exports.express_mongo = function () { return __awaiter(void 0, void 0, void 0, f
                     'babel-plugin-module-resolver',
                     'eslint',
                     'eslint-config-prettier',
+                    'eslint-plugin-import',
                     'eslint-plugin-prettier',
                     'fork-ts-checker-webpack-plugin',
                     'husky',
@@ -351,7 +354,9 @@ var copyPreset = function (preset) {
 var assignPackageJson = function (obj) {
     cli_1.spinner.setText('Configuring npm scripts, husky and lint staged');
     var original = JSON.parse(fs_extra_1.default.readFileSync(path_1.default.resolve(process.cwd(), 'package.json')).toString());
-    fs_extra_1.default.writeFileSync(path_1.default.resolve(process.cwd(), 'package.json'), prettier_1.format(JSON.stringify(__assign(__assign(__assign({}, original), lintstaged), obj)), { parser: 'json-stringify' }));
+    fs_extra_1.default.writeFileSync(path_1.default.resolve(process.cwd(), 'package.json'), prettier_1.format(JSON.stringify(__assign(__assign(__assign({}, original), lintstaged), obj)), {
+        parser: 'json-stringify',
+    }));
     return;
 };
 var tscBabel = function () {

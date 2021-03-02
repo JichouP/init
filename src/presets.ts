@@ -32,6 +32,7 @@ export const node = async () => {
     'babel-plugin-module-resolver',
     'eslint',
     'eslint-config-prettier',
+    'eslint-plugin-import',
     'eslint-plugin-prettier',
     'fork-ts-checker-webpack-plugin',
     'husky',
@@ -138,6 +139,7 @@ export const express = async () => {
     'babel-plugin-module-resolver',
     'eslint',
     'eslint-config-prettier',
+    'eslint-plugin-import',
     'eslint-plugin-prettier',
     'fork-ts-checker-webpack-plugin',
     'husky',
@@ -191,6 +193,7 @@ export const express_mongo = async () => {
     'babel-plugin-module-resolver',
     'eslint',
     'eslint-config-prettier',
+    'eslint-plugin-import',
     'eslint-plugin-prettier',
     'fork-ts-checker-webpack-plugin',
     'husky',
@@ -224,7 +227,11 @@ export const express_mongo = async () => {
   spinner.done();
 };
 
-const npm = (dependencies: string[], devDependencies: string[], config?: {}): Promise<void> => {
+const npm = (
+  dependencies: string[],
+  devDependencies: string[],
+  config?: {}
+): Promise<void> => {
   spinner.setText('npm init');
   return new Promise((res, rej) => {
     // init
@@ -256,16 +263,23 @@ const npm = (dependencies: string[], devDependencies: string[], config?: {}): Pr
 
 const copyPreset = (preset: keyof typeof presets): void => {
   spinner.setText('Copying configuration files');
-  fs.copySync(path.resolve(__dirname, 'presets', preset), path.resolve(process.cwd()));
+  fs.copySync(
+    path.resolve(__dirname, 'presets', preset),
+    path.resolve(process.cwd())
+  );
   return;
 };
 
 const assignPackageJson = (obj: {}) => {
   spinner.setText('Configuring npm scripts, husky and lint staged');
-  const original = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), 'package.json')).toString());
+  const original = JSON.parse(
+    fs.readFileSync(path.resolve(process.cwd(), 'package.json')).toString()
+  );
   fs.writeFileSync(
     path.resolve(process.cwd(), 'package.json'),
-    format(JSON.stringify({ ...original, ...lintstaged, ...obj }), { parser: 'json-stringify' })
+    format(JSON.stringify({ ...original, ...lintstaged, ...obj }), {
+      parser: 'json-stringify',
+    })
   );
   return;
 };
