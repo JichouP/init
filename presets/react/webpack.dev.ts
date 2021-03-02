@@ -1,7 +1,6 @@
 import merge from 'webpack-merge';
 import common from './webpack.common';
 import path from 'path';
-import { dev } from './babel.config';
 
 export default merge(
   common,
