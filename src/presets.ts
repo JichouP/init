@@ -47,10 +47,10 @@ export const node = async () => {
   const scripts = {
     start: 'node dist/app.js',
     build: 'webpack --config webpack.prod.ts',
+    lint: 'eslint src',
     test: 'jest --color',
     testWithCoverage: 'jest --collectCoverage --color',
     openCoverage: 'sensible-browser ./coverage/lcov-report/index.html',
-    // tsc_babel: 'tsc babel.config.ts --esModuleInterop --lib es5',
   };
   spinner.start();
   await npm(dependencies, devDependencies);
@@ -105,11 +105,11 @@ export const react = async () => {
   const scripts = {
     start: 'webpack serve --config webpack.dev.ts',
     build: 'webpack --config webpack.prod.ts',
+    lint: 'eslint src',
     test: 'jest --color',
     testWithUpdateSnapshot: 'jest -u --color',
     testWithCoverage: 'jest --collectCoverage --color',
     openCoverage: 'sensible-browser ./coverage/lcov-report/index.html',
-    // tsc_babel: 'tsc babel.config.ts --esModuleInterop --lib es5',
   };
   spinner.start();
   await npm(dependencies, devDependencies);
@@ -160,10 +160,10 @@ export const express = async () => {
   const scripts = {
     serve: 'node dist/app.js',
     build: 'webpack --config webpack.prod.ts',
+    lint: 'eslint src',
     test: 'jest --color',
     testWithCoverage: 'jest --collectCoverage --color',
     openCoverage: 'sensible-browser ./coverage/lcov-report/index.html',
-    // tsc_babel: 'tsc babel.config.ts --esModuleInterop --lib es5',
   };
   spinner.start();
   await npm(dependencies, devDependencies);
@@ -216,10 +216,10 @@ export const express_mongo = async () => {
   const scripts = {
     serve: 'node dist/app.js',
     build: 'webpack --config webpack.prod.ts',
+    lint: 'eslint src',
     test: 'jest --color',
     testWithCoverage: 'jest --collectCoverage --color',
     openCoverage: 'sensible-browser ./coverage/lcov-report/index.html',
-    // tsc_babel: 'tsc babel.config.ts --esModuleInterop --lib es5',
   };
   spinner.start();
   await npm(dependencies, devDependencies);
