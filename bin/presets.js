@@ -168,7 +168,7 @@ exports.react = function () { return __awaiter(void 0, void 0, void 0, function 
                     'typescript',
                 ];
                 scripts = {
-                    start: 'webpack-dev-server --config webpack.dev.ts',
+                    start: 'webpack serve --config webpack.dev.ts',
                     build: 'webpack --config webpack.prod.ts',
                     test: 'jest --color',
                     testWithUpdateSnapshot: 'jest -u --color',
