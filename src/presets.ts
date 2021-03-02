@@ -54,13 +54,13 @@ export const node = async () => {
     test: 'jest --color',
     testWithCoverage: 'jest --collectCoverage --color',
     openCoverage: 'sensible-browser ./coverage/lcov-report/index.html',
-    tsc_babel: 'tsc babel.config.ts --esModuleInterop --lib es5',
+    // tsc_babel: 'tsc babel.config.ts --esModuleInterop --lib es5',
   };
   spinner.start();
   await npm(dependencies, devDependencies);
   copyPreset('node');
   assignPackageJson({ scripts });
-  await tscBabel();
+  // await tscBabel();
   spinner.done();
 };
 
@@ -113,13 +113,13 @@ export const react = async () => {
     testWithUpdateSnapshot: 'jest -u --color',
     testWithCoverage: 'jest --collectCoverage --color',
     openCoverage: 'sensible-browser ./coverage/lcov-report/index.html',
-    tsc_babel: 'tsc babel.config.ts --esModuleInterop --lib es5',
+    // tsc_babel: 'tsc babel.config.ts --esModuleInterop --lib es5',
   };
   spinner.start();
   await npm(dependencies, devDependencies);
   copyPreset('react');
   assignPackageJson({ scripts });
-  await tscBabel();
+  // await tscBabel();
   spinner.done();
 };
 
@@ -166,13 +166,13 @@ export const express = async () => {
     test: 'jest --color',
     testWithCoverage: 'jest --collectCoverage --color',
     openCoverage: 'sensible-browser ./coverage/lcov-report/index.html',
-    tsc_babel: 'tsc babel.config.ts --esModuleInterop --lib es5',
+    // tsc_babel: 'tsc babel.config.ts --esModuleInterop --lib es5',
   };
   spinner.start();
   await npm(dependencies, devDependencies);
   copyPreset('express');
   assignPackageJson({ scripts });
-  await tscBabel();
+  // await tscBabel();
   spinner.done();
 };
 
@@ -221,13 +221,13 @@ export const express_mongo = async () => {
     test: 'jest --color',
     testWithCoverage: 'jest --collectCoverage --color',
     openCoverage: 'sensible-browser ./coverage/lcov-report/index.html',
-    tsc_babel: 'tsc babel.config.ts --esModuleInterop --lib es5',
+    // tsc_babel: 'tsc babel.config.ts --esModuleInterop --lib es5',
   };
   spinner.start();
   await npm(dependencies, devDependencies);
   copyPreset('express_mongo');
   assignPackageJson({ scripts });
-  await tscBabel();
+  // await tscBabel();
   spinner.done();
 };
 
@@ -288,15 +288,15 @@ const assignPackageJson = (obj: {}) => {
   return;
 };
 
-const tscBabel = (): Promise<void> => {
-  spinner.setText('Transpiling babel.config.ts');
-  return new Promise((res, rej) => {
-    exec(`npm run tsc_babel`, (err, stdout, stderr) => {
-      if (err) {
-        console.error(err);
-        return rej(err);
-      }
-      res();
-    });
-  });
-};
+// const tscBabel = (): Promise<void> => {
+//   spinner.setText('Transpiling babel.config.ts');
+//   return new Promise((res, rej) => {
+//     exec(`npm run tsc_babel`, (err, stdout, stderr) => {
+//       if (err) {
+//         console.error(err);
+//         return rej(err);
+//       }
+//       res();
+//     });
+//   });
+// };
