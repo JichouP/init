@@ -1,4 +1,3 @@
-import http from 'http';
 import express, { Request, Response, NextFunction } from 'express';
 import mongoose from 'mongoose';
 import { ParamsDictionary } from 'express-serve-static-core';
@@ -31,7 +30,7 @@ app.use((err: Error, req: Request<ParamsDictionary>, res: Response<any>, next: N
 });
 
 if (process.env.NODE_ENV !== 'test') {
-  http.createServer(app).listen(3000, () => {
+  app.listen(3000, () => {
     console.log('listening at 3000');
   });
 }
