@@ -101,6 +101,7 @@ exports.node = function () { return __awaiter(void 0, void 0, void 0, function (
                 scripts = {
                     start: 'node dist/app.js',
                     build: 'webpack --config webpack.prod.ts',
+                    lint: 'eslint src',
                     test: 'jest --color',
                     testWithCoverage: 'jest --collectCoverage --color',
                     openCoverage: 'sensible-browser ./coverage/lcov-report/index.html',
@@ -166,6 +167,7 @@ exports.react = function () { return __awaiter(void 0, void 0, void 0, function 
                 scripts = {
                     start: 'webpack serve --config webpack.dev.ts',
                     build: 'webpack --config webpack.prod.ts',
+                    lint: 'eslint src',
                     test: 'jest --color',
                     testWithUpdateSnapshot: 'jest -u --color',
                     testWithCoverage: 'jest --collectCoverage --color',
@@ -228,6 +230,7 @@ exports.express = function () { return __awaiter(void 0, void 0, void 0, functio
                 scripts = {
                     serve: 'node dist/app.js',
                     build: 'webpack --config webpack.prod.ts',
+                    lint: 'eslint src',
                     test: 'jest --color',
                     testWithCoverage: 'jest --collectCoverage --color',
                     openCoverage: 'sensible-browser ./coverage/lcov-report/index.html',
@@ -291,6 +294,7 @@ exports.express_mongo = function () { return __awaiter(void 0, void 0, void 0, f
                 scripts = {
                     serve: 'node dist/app.js',
                     build: 'webpack --config webpack.prod.ts',
+                    lint: 'eslint src',
                     test: 'jest --color',
                     testWithCoverage: 'jest --collectCoverage --color',
                     openCoverage: 'sensible-browser ./coverage/lcov-report/index.html',
