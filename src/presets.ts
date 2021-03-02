@@ -6,11 +6,6 @@ import { presets } from './constants';
 import { spinner } from './cli';
 
 const lintstaged = {
-  husky: {
-    hooks: {
-      'pre-commit': 'lint-staged',
-    },
-  },
   'lint-staged': {
     '*.{md,html,css}': ['prettier --write', 'git add'],
     '*.{ts,tsx}': ['prettier --write', 'eslint --fix', 'git add'],

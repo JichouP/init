@@ -57,11 +57,6 @@ var path_1 = __importDefault(require("path"));
 var prettier_1 = require("prettier");
 var cli_1 = require("./cli");
 var lintstaged = {
-    husky: {
-        hooks: {
-            'pre-commit': 'lint-staged',
-        },
-    },
     'lint-staged': {
         '*.{md,html,css}': ['prettier --write', 'git add'],
         '*.{ts,tsx}': ['prettier --write', 'eslint --fix', 'git add'],
