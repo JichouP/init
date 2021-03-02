@@ -5,9 +5,10 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:import/errors",
     "plugin:import/warnings",
-    "plugin:prettier/recommended",
-    "prettier/@typescript-eslint",
     "plugin:react/recommended"
+    "plugin:react-hooks/recommended",
+    "plugin:prettier/recommended",
+    "prettier"
   ],
   "plugins": ["@typescript-eslint", "react-hooks"],
   "env": { "node": true, "es6": true, "browser": true },
@@ -24,8 +25,13 @@
       "version": "detect"
     },
     "import/resolver": {
-      "webpack": {
-        "config": "webpack.config.js"
+      "import/resolver": {
+        "babel-module": {
+          "alias": {
+            "@": "./src"
+          },
+          "extensions": [".js", ".jsx", ".ts", ".tsx"]
+        }
       }
     },
     "import/ignore": "node_modules"
