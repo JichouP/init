@@ -16,18 +16,5 @@ export default merge(
       host: 'localhost',
       port: 8080,
     },
-  } as any,
-  {
-    mode: 'production',
-    module: {
-      rules: [
-        {
-          test: /\.[jt]sx?$/,
-          loader: 'babel-loader',
-          exclude: /node_modules/,
-          options: dev,
-        },
-      ],
-    },
-  }
+  } as any
 );

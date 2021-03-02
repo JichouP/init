@@ -14,6 +14,28 @@ const rules: webpack.RuleSetRule[] = [
       },
     },
   },
+  {
+    test: /\.[jt]sx?$/,
+    loader: 'babel-loader',
+    exclude: /node_modules/,
+    options: {
+      presets: [
+        ['@babel/preset-env', { targets: { node: 'current' } }],
+        '@babel/preset-typescript',
+      ],
+      plugins: [
+        [
+          'module-resolver',
+          {
+            root: ['./'],
+            alias: {
+              '@': './src',
+            },
+          },
+        ],
+      ],
+    },
+  },
 ];
 
 const module: webpack.ModuleOptions = {

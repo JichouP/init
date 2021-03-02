@@ -9,6 +9,28 @@ const rules: webpack.RuleSetRule[] = [
     use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
   },
   {
+    test: /\.[jt]sx?$/,
+    loader: 'babel-loader',
+    exclude: /node_modules/,
+    options: {
+      presets: [
+        ['@babel/preset-env', { targets: { node: 'current' } }],
+        '@babel/preset-typescript',
+      ],
+      plugins: [
+        [
+          'module-resolver',
+          {
+            root: ['./'],
+            alias: {
+              '@': './src',
+            },
+          },
+        ],
+      ],
+    },
+  },
+  {
     test: /\.tsx?$/,
     exclude: /(node_modules|\.webpack)/,
     use: {
