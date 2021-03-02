@@ -1,6 +1,7 @@
 import merge from 'webpack-merge';
 import common from './webpack.common';
 import path from 'path';
+import { dev } from './babel.config';
 
 export default merge(
   common,
@@ -15,5 +16,18 @@ export default merge(
       host: 'localhost',
       port: 8080,
     },
-  } as any
+  } as any,
+  {
+    mode: 'production',
+    module: {
+      rules: [
+        {
+          test: /\.[jt]sx?$/,
+          loader: 'babel-loader',
+          exclude: /node_modules/,
+          options: dev,
+        },
+      ],
+    },
+  }
 );
