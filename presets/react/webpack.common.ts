@@ -34,13 +34,13 @@ const config: webpack.Configuration = {
   module: _module,
   resolve: {
     extensions: ['.js', '.ts', '.jsx', '.tsx', '.css'],
-    alias: {
-      '@': path.resolve(__dirname, 'src'),
-    },
   },
   plugins: [
     new ForkTsCheckerWebpackPlugin(),
-    new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'src', 'index.html'), filename: 'index.html' }),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'src', 'index.html'),
+      filename: 'index.html',
+    }),
   ],
 };
 

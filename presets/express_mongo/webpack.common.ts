@@ -29,10 +29,7 @@ const config: webpack.Configuration = {
   },
   module,
   resolve: {
-    extensions: ['.js', '.ts'],
-    alias: {
-      '@': path.resolve(__dirname, 'src'),
-    },
+    extensions: ['.js', '.ts', '.jsx', '.tsx', '.css'],
   },
   plugins: [new ForkTsCheckerWebpackPlugin()],
   externals: [webpackNodeExternals()],

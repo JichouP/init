@@ -12,7 +12,7 @@ export const dev: TransformOptions = {
       {
         root: ['./'],
         alias: {
-          '@': path.resolve(__dirname, 'src'),
+          '@': './src',
         },
       },
     ],
@@ -31,7 +31,7 @@ export const prod: TransformOptions = {
       {
         root: ['./'],
         alias: {
-          '@': path.resolve(__dirname, 'src'),
+          '@': './src',
         },
       },
     ],
