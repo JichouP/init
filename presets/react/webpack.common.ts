@@ -20,7 +20,7 @@ const rules: webpack.RuleSetRule[] = [
   },
 ];
 
-const _module: webpack.Module = {
+const _module: webpack.ModuleOptions = {
   rules,
 };
 
