@@ -35,14 +35,7 @@ const config: webpack.Configuration = {
   resolve: {
     extensions: ['.js', '.ts', '.jsx', '.tsx', '.css'],
     alias: {
-      '@assets': path.resolve(__dirname, 'src', 'assets'),
-      '@components': path.resolve(__dirname, 'src', 'components'),
-      '@constants': path.resolve(__dirname, 'src', 'constants'),
-      '@screens': path.resolve(__dirname, 'src', 'screens'),
-      '@utils': path.resolve(__dirname, 'src', 'utils'),
-      '@contexts': path.resolve(__dirname, 'src', 'contexts'),
-      '@store': path.resolve(__dirname, 'src', 'stores', 'store'),
-      '@color': path.resolve(__dirname, 'src', 'constants', 'color'),
+      '@': path.resolve(__dirname, 'src'),
     },
   },
   plugins: [

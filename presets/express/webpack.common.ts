@@ -31,9 +31,7 @@ const config: webpack.Configuration = {
   resolve: {
     extensions: ['.js', '.ts'],
     alias: {
-      '@models': path.resolve(__dirname, 'src', 'models'),
-      '@routes': path.resolve(__dirname, 'src', 'routes'),
-      '@utils': path.resolve(__dirname, 'src', 'utils'),
+      '@': path.resolve(__dirname, 'src'),
     },
   },
   plugins: [new ForkTsCheckerWebpackPlugin()],
