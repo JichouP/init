@@ -1,6 +1,6 @@
 {
   "name": "@jichoup/init",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Initialize JS Project",
   "main": "./bin/cli.js",
   "bin": {
