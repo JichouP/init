@@ -1,5 +1,6 @@
-import express, { Request, Response, NextFunction } from 'express';
-import { ParamsDictionary } from 'express-serve-static-core';
+import express from 'express';
+import internalServerErrorHandler from '@/routes/internalServerError';
+import notFoundHandler from '@/routes/notFound';
 
 const app = express();
 
@@ -10,10 +11,8 @@ app.use('/', (req, res, next) => {
   res.status(404).send('Not Found');
   next();
 });
-app.use((err: Error, req: Request<ParamsDictionary>, res: Response<any>, next: NextFunction) => {
-  res.status(500);
-  res.json({ message: err.message });
-});
+app.use('/', notFoundHandler);
+app.use(internalServerErrorHandler);
 
 if (process.env.NODE_ENV !== 'test') {
   app.listen(3000, () => {

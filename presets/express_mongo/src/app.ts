@@ -1,7 +1,9 @@
 import express, { Request, Response, NextFunction } from 'express';
 import mongoose from 'mongoose';
 import { ParamsDictionary } from 'express-serve-static-core';
-import User from '@routes/user';
+import internalServerErrorHandler from '@/routes/internalServerError';
+import notFoundHandler from '@/routes/notFound';
+import User from '@/routes/user';
 
 const app = express();
 
@@ -20,14 +22,8 @@ app.get('/user', User.findList);
 app.get('/user/:id', User.find);
 app.post('/user', User.create);
 
-app.use('/', (req, res, next) => {
-  res.status(404).send('Not Found');
-  next();
-});
-app.use((err: Error, req: Request<ParamsDictionary>, res: Response<any>, next: NextFunction) => {
-  res.status(500);
-  res.json({ message: err.message });
-});
+app.use('/', notFoundHandler);
+app.use(internalServerErrorHandler);
 
 if (process.env.NODE_ENV !== 'test') {
   app.listen(3000, () => {
