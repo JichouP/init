@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { cleanup, fireEvent, render } from '@testing-library/react';
-import App from './App';
+import App from '@/App';
 
 describe('Unit test', () => {
   it('should have div element.', () => {});

@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
-import { connectMock, disconnectMock } from '@utils/util';
-import User, { userModel, UserDocument } from '@models/user';
+import { connectMock, disconnectMock } from '@/utils/util';
+import User, { userModel, UserDocument } from '@/models/user';
 
 const initUsers = [{ name: 'user1' }, { name: 'user2' }, { name: 'user3' }];
 let users: UserDocument[] = [];

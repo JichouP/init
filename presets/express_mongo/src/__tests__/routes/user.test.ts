@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
-import { createRequestMock, connectMock, disconnectMock } from '@utils/util';
-import User from '@routes/user';
-import { userModel, UserDocument } from '@models/user';
+import { createRequestMock, connectMock, disconnectMock } from '@/utils/util';
+import User from '@/routes/user';
+import { userModel, UserDocument } from '@/models/user';
 const initUsers = [{ name: 'user1' }, { name: 'user2' }, { name: 'user3' }];
 let users: UserDocument[] = [];
 
@@ -24,7 +24,9 @@ describe('routes/user', () => {
   });
   describe('find', () => {
     test('shuld get user', async () => {
-      const [req, res, next] = createRequestMock({ params: { id: users[0]._id } });
+      const [req, res, next] = createRequestMock({
+        params: { id: users[0]._id },
+      });
 
       await User.find(req, res, next);
       expect(res.status.calledWith(200)).toBeTruthy();

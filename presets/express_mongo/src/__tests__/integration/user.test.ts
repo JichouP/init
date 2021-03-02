@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
 import request from 'supertest';
-import { connectMock, disconnectMock } from '@utils/util';
-import { userModel, UserDocument } from '@models/user';
-import app from '../../app';
+import { connectMock, disconnectMock } from '@/utils/util';
+import { userModel, UserDocument } from '@/models/user';
+import app from '@/app';
 const initUsers = [{ name: 'user1' }, { name: 'user2' }, { name: 'user3' }];
 let users: UserDocument[] = [];
 

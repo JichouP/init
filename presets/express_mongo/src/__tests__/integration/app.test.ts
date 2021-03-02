@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import request from 'supertest';
-import { connectMock, disconnectMock } from '@utils/util';
-import app from '../../app';
+import { connectMock, disconnectMock } from '@/utils/util';
+import app from '@/app';
 
 describe('integration user', () => {
   beforeAll(connectMock(mongoose, 'jest-integration'));
