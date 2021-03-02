@@ -108,7 +108,6 @@ exports.node = function () { return __awaiter(void 0, void 0, void 0, function (
                     test: 'jest --color',
                     testWithCoverage: 'jest --collectCoverage --color',
                     openCoverage: 'sensible-browser ./coverage/lcov-report/index.html',
-                    tsc_babel: 'tsc babel.config.ts --esModuleInterop --lib es5',
                 };
                 cli_1.spinner.start();
                 return [4 /*yield*/, npm(dependencies, devDependencies)];
@@ -116,9 +115,7 @@ exports.node = function () { return __awaiter(void 0, void 0, void 0, function (
                 _a.sent();
                 copyPreset('node');
                 assignPackageJson({ scripts: scripts });
-                return [4 /*yield*/, tscBabel()];
-            case 2:
-                _a.sent();
+                // await tscBabel();
                 cli_1.spinner.done();
                 return [2 /*return*/];
         }
@@ -177,7 +174,6 @@ exports.react = function () { return __awaiter(void 0, void 0, void 0, function 
                     testWithUpdateSnapshot: 'jest -u --color',
                     testWithCoverage: 'jest --collectCoverage --color',
                     openCoverage: 'sensible-browser ./coverage/lcov-report/index.html',
-                    tsc_babel: 'tsc babel.config.ts --esModuleInterop --lib es5',
                 };
                 cli_1.spinner.start();
                 return [4 /*yield*/, npm(dependencies, devDependencies)];
@@ -185,9 +181,7 @@ exports.react = function () { return __awaiter(void 0, void 0, void 0, function 
                 _a.sent();
                 copyPreset('react');
                 assignPackageJson({ scripts: scripts });
-                return [4 /*yield*/, tscBabel()];
-            case 2:
-                _a.sent();
+                // await tscBabel();
                 cli_1.spinner.done();
                 return [2 /*return*/];
         }
@@ -240,7 +234,6 @@ exports.express = function () { return __awaiter(void 0, void 0, void 0, functio
                     test: 'jest --color',
                     testWithCoverage: 'jest --collectCoverage --color',
                     openCoverage: 'sensible-browser ./coverage/lcov-report/index.html',
-                    tsc_babel: 'tsc babel.config.ts --esModuleInterop --lib es5',
                 };
                 cli_1.spinner.start();
                 return [4 /*yield*/, npm(dependencies, devDependencies)];
@@ -248,9 +241,7 @@ exports.express = function () { return __awaiter(void 0, void 0, void 0, functio
                 _a.sent();
                 copyPreset('express');
                 assignPackageJson({ scripts: scripts });
-                return [4 /*yield*/, tscBabel()];
-            case 2:
-                _a.sent();
+                // await tscBabel();
                 cli_1.spinner.done();
                 return [2 /*return*/];
         }
@@ -305,7 +296,6 @@ exports.express_mongo = function () { return __awaiter(void 0, void 0, void 0, f
                     test: 'jest --color',
                     testWithCoverage: 'jest --collectCoverage --color',
                     openCoverage: 'sensible-browser ./coverage/lcov-report/index.html',
-                    tsc_babel: 'tsc babel.config.ts --esModuleInterop --lib es5',
                 };
                 cli_1.spinner.start();
                 return [4 /*yield*/, npm(dependencies, devDependencies)];
@@ -313,9 +303,7 @@ exports.express_mongo = function () { return __awaiter(void 0, void 0, void 0, f
                 _a.sent();
                 copyPreset('express_mongo');
                 assignPackageJson({ scripts: scripts });
-                return [4 /*yield*/, tscBabel()];
-            case 2:
-                _a.sent();
+                // await tscBabel();
                 cli_1.spinner.done();
                 return [2 /*return*/];
         }
@@ -363,15 +351,15 @@ var assignPackageJson = function (obj) {
     }));
     return;
 };
-var tscBabel = function () {
-    cli_1.spinner.setText('Transpiling babel.config.ts');
-    return new Promise(function (res, rej) {
-        child_process_1.exec("npm run tsc_babel", function (err, stdout, stderr) {
-            if (err) {
-                console.error(err);
-                return rej(err);
-            }
-            res();
-        });
-    });
-};
+// const tscBabel = (): Promise<void> => {
+//   spinner.setText('Transpiling babel.config.ts');
+//   return new Promise((res, rej) => {
+//     exec(`npm run tsc_babel`, (err, stdout, stderr) => {
+//       if (err) {
+//         console.error(err);
+//         return rej(err);
+//       }
+//       res();
+//     });
+//   });
+// };

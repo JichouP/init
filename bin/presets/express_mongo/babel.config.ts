@@ -1,17 +1,37 @@
 import { TransformOptions } from '@babel/core';
 import path from 'path';
 
-export default {
-  presets: [['@babel/preset-env', { targets: { node: 'current' } }], '@babel/preset-typescript'],
+export const dev: TransformOptions = {
+  presets: [
+    ['@babel/preset-env', { targets: { node: 'current' } }],
+    '@babel/preset-typescript',
+  ],
   plugins: [
     [
       'module-resolver',
       {
         root: ['./'],
         alias: {
-          '@models': path.resolve(__dirname, 'src', 'models'),
-          '@routes': path.resolve(__dirname, 'src', 'routes'),
-          '@utils': path.resolve(__dirname, 'src', 'utils'),
+          '@': path.resolve(__dirname, 'src'),
+        },
+      },
+    ],
+  ],
+  sourceMaps: true,
+} as TransformOptions;
+
+export const prod: TransformOptions = {
+  presets: [
+    ['@babel/preset-env', { targets: { node: 'current' } }],
+    '@babel/preset-typescript',
+  ],
+  plugins: [
+    [
+      'module-resolver',
+      {
+        root: ['./'],
+        alias: {
+          '@': path.resolve(__dirname, 'src'),
         },
       },
     ],
