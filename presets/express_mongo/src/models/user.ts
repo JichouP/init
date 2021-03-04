@@ -2,7 +2,7 @@ import mongoose, { Schema, Document } from 'mongoose';
 
 interface UserSchema {
   name: string;
-  createdAt: Date;
+  createdAt?: Date;
 }
 export interface UserDocument extends Document, UserSchema {}
 
