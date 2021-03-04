@@ -1,12 +1,12 @@
-import mongoose, { Schema } from 'mongoose';
+import mongoose, { Schema, Document } from 'mongoose';
 
 interface UserSchema {
   name: string;
   createdAt: Date;
 }
-export interface UserDocument extends mongoose.Document, UserSchema {}
+export interface UserDocument extends Document, UserSchema {}
 
-const userSchema = new Schema<UserSchema>(
+const userSchema = new Schema<UserDocument>(
   {
     name: {
       type: String,
@@ -18,13 +18,15 @@ const userSchema = new Schema<UserSchema>(
       default: Date.now,
     },
   },
-  { collection: 'user' },
+  { collection: 'user' }
 );
 
 export const userModel = mongoose.model<UserDocument>('User', userSchema);
 
 export default {
-  find: async (query: {}): Promise<UserDocument | null> => {
+  find: async (
+    query: Record<string, unknown>
+  ): Promise<UserDocument | null> => {
     return new Promise((res, rej) => {
       userModel.findOne(query).exec((err, doc) => {
         if (err) {

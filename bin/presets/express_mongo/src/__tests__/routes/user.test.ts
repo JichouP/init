@@ -1,8 +1,12 @@
 import mongoose from 'mongoose';
 import { createRequestMock, connectMock, disconnectMock } from '@/utils/util';
-import User from '@/routes/user';
+import * as User from '@/routes/user';
 import { userModel, UserDocument } from '@/models/user';
-const initUsers = [{ name: 'user1' }, { name: 'user2' }, { name: 'user3' }];
+const initUsers = [
+  { name: 'user1', createdAt: new Date() },
+  { name: 'user2', createdAt: new Date() },
+  { name: 'user3', createdAt: new Date() },
+];
 let users: UserDocument[] = [];
 
 describe('routes/user', () => {

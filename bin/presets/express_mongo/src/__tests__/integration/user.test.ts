@@ -3,7 +3,11 @@ import request from 'supertest';
 import { connectMock, disconnectMock } from '@/utils/util';
 import { userModel, UserDocument } from '@/models/user';
 import app from '@/app';
-const initUsers = [{ name: 'user1' }, { name: 'user2' }, { name: 'user3' }];
+const initUsers = [
+  { name: 'user1', createdAt: new Date() },
+  { name: 'user2', createdAt: new Date() },
+  { name: 'user3', createdAt: new Date() },
+];
 let users: UserDocument[] = [];
 
 describe('integration user', () => {

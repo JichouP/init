@@ -1,7 +1,7 @@
 import { RequestHandler } from 'express';
 
-const notFoundHandler: RequestHandler = (req, res, next) => {
-  res.status(404);
+const notFoundHandler: RequestHandler = (_req, res) => {
+  res.sendStatus(404);
 };
 
 export default notFoundHandler;

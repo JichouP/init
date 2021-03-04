@@ -1,9 +1,8 @@
-import express, { Request, Response, NextFunction } from 'express';
+import express from 'express';
 import mongoose from 'mongoose';
-import { ParamsDictionary } from 'express-serve-static-core';
 import internalServerErrorHandler from '@/routes/internalServerError';
 import notFoundHandler from '@/routes/notFound';
-import User from '@/routes/user';
+import * as User from '@/routes/user';
 
 const app = express();
 

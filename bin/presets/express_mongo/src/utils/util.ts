@@ -17,8 +17,9 @@ export const createRequestMock = (
 export const connectMock = (
   mongoose: Mongoose,
   dbName: 'jest-routes' | 'jest-models' | 'jest-integration'
-) => async () => {
+) => async (): Promise<void> => {
   mongoose.Promise = global.Promise;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   await mongoose.connect((global as any).__MONGO_URI__, {
     useNewUrlParser: true,
     useCreateIndex: true,
@@ -26,6 +27,6 @@ export const connectMock = (
     dbName: dbName,
   });
 };
-export const disconnectMock = (mongoose: Mongoose) => () => {
+export const disconnectMock = (mongoose: Mongoose) => (): void => {
   mongoose.connection.close();
 };
